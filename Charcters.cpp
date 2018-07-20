@@ -16,18 +16,19 @@ Charcter CreateCharcter(const char* name)
 		//printf("%d\n", seed);
 		srand((unsigned int)seed);
 	}
+	srand((unsigned int)time(NULL));
 	strcpy_s(charcter.name, name);	// 名前
 
 	// ステータス
-	charcter.status.STR = DiceRoll(3);
-	charcter.status.CON = DiceRoll(3);
-	charcter.status.POW = DiceRoll(3);
-	charcter.status.DEX = DiceRoll(3);
-	charcter.status.APP = DiceRoll(3);
+	charcter.status.STR = DiceRoll(3,6);
+	charcter.status.CON = DiceRoll(3,6);
+	charcter.status.POW = DiceRoll(3,6);
+	charcter.status.DEX = DiceRoll(3,6);
+	charcter.status.APP = DiceRoll(3,6);
 
-	charcter.status.SIZ = DiceRoll(2) + 6;
-	charcter.status.INT = DiceRoll(2) + 6;
-	charcter.status.EDU = DiceRoll(3) + 3;
+	charcter.status.SIZ = DiceRoll(2,6) + 6;
+	charcter.status.INT = DiceRoll(2,6) + 6;
+	charcter.status.EDU = DiceRoll(3,6) + 3;
 
 	charcter.status.SAN = charcter.status.POW * 5;
 	charcter.status.LUCK = charcter.status.POW * 5;
@@ -72,14 +73,14 @@ void PrintCharcterSheet(const Charcter* charcter)
 	printf("SKILL POINT : %d\n", charcter->SKILL_POINT);
 }
 
-short DiceRoll(short dice)
+short DiceRoll(short dice, short side)
 {
 	short ans = 0;
 	short i;
 
 	for (i = 0; i < dice; i++)
 	{
-		ans += rand() % 6 + 1;
+		ans += rand() % side + 1;
 	}
 
 	return ans;

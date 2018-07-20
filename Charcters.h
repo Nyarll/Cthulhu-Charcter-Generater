@@ -1,24 +1,24 @@
 #pragma once
 
 #include <stdio.h>
-#include <windows.h>
+//#include <windows.h>
 
 typedef struct
 {
-	short STR;
-	short CON;
-	short POW;
-	short DEX;
-	short APP;
-	short SIZ;
-	short INT;
-	short EDU;
+	short STR;		// STR
+	short CON;		// CON
+	short POW;		// POW
+	short DEX;		// DEX
+	short APP;		// APP
+	short SIZ;		// SIZ
+	short INT;		// INT
+	short EDU;		// EDU
 
-	short SAN;
-	short LUCK;
+	short SAN;		// SAN
+	short LUCK;		// 幸運
 
-	short IDEA;
-	short KNOWLEDGE;
+	short IDEA;		// アイディア
+	short KNOWLEDGE;	// 知識
 
 	short HP;
 	short MP;
@@ -34,4 +34,4 @@ typedef struct
 Charcter CreateCharcter(const char* name);
 void PrintCharcterSheet(const Charcter* charcter);
 
-short DiceRoll(short dice);
+short DiceRoll(short dice, short side);
