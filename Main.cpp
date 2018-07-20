@@ -3,19 +3,19 @@
 
 int main(void)
 {
-	Charcter player;
+	Character player;
 	char name[21];
 
 	SetConsoleTitle(TEXT("Cthulhu Charcter Generater"));
 
 	printf(" Name : ");
 	scanf_s("%s", name, 21);
-	player = CreateCharcter(name);
+	player = CreateCharacter(name);
 
 	//WaitKey();
 	ClearScreen();
 
-	PrintCharcterSheet(&player);
+	PrintCharacterSheet(&player);
 	WaitKey();
 	return 0;
 }

@@ -29,9 +29,9 @@ typedef struct
 	char name[21];	// キャラクターネーム / 最大半角20文字
 	Status status;	// キャラクター能力値
 	short SKILL_POINT;
-}Charcter;
+}Character;
 
-Charcter CreateCharcter(const char* name);
-void PrintCharcterSheet(const Charcter* charcter);
+Character CreateCharacter(const char* name);
+void PrintCharacterSheet(const Character* character);
 
 short DiceRoll(short dice, short side);

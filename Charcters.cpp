@@ -3,9 +3,9 @@
 #include <string.h>
 #include "Charcters.h"
 
-Charcter CreateCharcter(const char* name)
+Character CreateCharacter(const char* name)
 {
-	Charcter charcter;
+	Character character;
 
 	{	// 名前でランダム
 		int seed = 0;
@@ -17,60 +17,60 @@ Charcter CreateCharcter(const char* name)
 		srand((unsigned int)seed);
 	}
 	srand((unsigned int)time(NULL));
-	strcpy_s(charcter.name, name);	// 名前
+	strcpy_s(character.name, name);	// 名前
 
 	// ステータス
-	charcter.status.STR = DiceRoll(3,6);
-	charcter.status.CON = DiceRoll(3,6);
-	charcter.status.POW = DiceRoll(3,6);
-	charcter.status.DEX = DiceRoll(3,6);
-	charcter.status.APP = DiceRoll(3,6);
+	character.status.STR = DiceRoll(3,6);
+	character.status.CON = DiceRoll(3,6);
+	character.status.POW = DiceRoll(3,6);
+	character.status.DEX = DiceRoll(3,6);
+	character.status.APP = DiceRoll(3,6);
 
-	charcter.status.SIZ = DiceRoll(2,6) + 6;
-	charcter.status.INT = DiceRoll(2,6) + 6;
-	charcter.status.EDU = DiceRoll(3,6) + 3;
+	character.status.SIZ = DiceRoll(2,6) + 6;
+	character.status.INT = DiceRoll(2,6) + 6;
+	character.status.EDU = DiceRoll(3,6) + 3;
 
-	charcter.status.SAN = charcter.status.POW * 5;
-	charcter.status.LUCK = charcter.status.POW * 5;
-	charcter.status.IDEA = charcter.status.INT * 5;
-	charcter.status.HP = (charcter.status.CON + charcter.status.SIZ) / 2;
-	charcter.status.MP = charcter.status.POW;
+	character.status.SAN = character.status.POW * 5;
+	character.status.LUCK = character.status.POW * 5;
+	character.status.IDEA = character.status.INT * 5;
+	character.status.HP = (character.status.CON + character.status.SIZ) / 2;
+	character.status.MP = character.status.POW;
 
-	charcter.SKILL_POINT = (charcter.status.EDU * 20) + (charcter.status.INT * 10);
+	character.SKILL_POINT = (character.status.EDU * 20) + (character.status.INT * 10);
 
 
-	return charcter;
+	return character;
 }
 
-void PrintCharcterSheet(const Charcter* charcter)
+void PrintCharacterSheet(const Character* character)
 {
-	printf(" Name : %s\n", charcter->name);
+	printf(" Name : %s\n", character->name);
 
 	printf("\n");
 
-	printf(" STR : %d\n", charcter->status.STR);
-	printf(" CON : %d\n", charcter->status.CON);
-	printf(" POW : %d\n", charcter->status.POW);
-	printf(" DEX : %d\n", charcter->status.DEX);
-	printf(" APP : %d\n", charcter->status.APP);
-	printf(" SIZ : %d\n", charcter->status.SIZ);
-	printf(" INT : %d\n", charcter->status.INT);
-	printf(" EDU : %d\n", charcter->status.EDU);
+	printf(" STR : %d\n", character->status.STR);
+	printf(" CON : %d\n", character->status.CON);
+	printf(" POW : %d\n", character->status.POW);
+	printf(" DEX : %d\n", character->status.DEX);
+	printf(" APP : %d\n", character->status.APP);
+	printf(" SIZ : %d\n", character->status.SIZ);
+	printf(" INT : %d\n", character->status.INT);
+	printf(" EDU : %d\n", character->status.EDU);
 
 	printf("\n");
 
-	printf(" SAN : %d\n", charcter->status.SAN);
-	printf("LUCK : %d\n", charcter->status.LUCK);
-	printf("IDEA : %d\n", charcter->status.IDEA);
+	printf(" SAN : %d\n", character->status.SAN);
+	printf("LUCK : %d\n", character->status.LUCK);
+	printf("IDEA : %d\n", character->status.IDEA);
 
 	printf("\n");
 
-	printf("  HP : %d\n", charcter->status.HP);
-	printf("  MP : %d\n", charcter->status.MP);
+	printf("  HP : %d\n", character->status.HP);
+	printf("  MP : %d\n", character->status.MP);
 
 	printf("\n");
 
-	printf("SKILL POINT : %d\n", charcter->SKILL_POINT);
+	printf("SKILL POINT : %d\n", character->SKILL_POINT);
 }
 
 short DiceRoll(short dice, short side)
